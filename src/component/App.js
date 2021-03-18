@@ -1,10 +1,18 @@
+
+import Title from "../Tiltle/Title";
 import "./App.css";
 
 function App() {
   return (
-   <div className="container">
-     <h1 className="text-center"> This is Khan</h1>
-   </div>
+    <>
+        <div className="container">
+          <div className="row">
+            <Title/>
+          </div>
+        </div>
+    </>
+  
+
   );
 }
 
