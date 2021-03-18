@@ -1,0 +1,11 @@
+.editIcon{
+    
+    opacity: 0;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-left: 40px !important ;
+}
+
+.TitleSection:hover .editIcon{
+    opacity: 1;
+}
