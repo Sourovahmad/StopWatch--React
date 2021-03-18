@@ -25,7 +25,25 @@ class Title extends React.Component {
 
     inputChange(event){
         
-        console.log(event.target.value)
+       this.setState({
+           ...this.state,
+           Title: event.target.value,
+      
+       })
+
+    
+    }
+
+
+    keyPressHandeler(event){
+
+        if(event.key === 'Enter'){
+
+            this.setState({
+                ...this.state,
+                isInput:false
+            })
+        }
     }
 
     render() {
@@ -36,7 +54,11 @@ class Title extends React.Component {
 
             outPut= (
                 <div>
-                    <input onChange={(event)=> this.inputChange(event)} className="form-control" type="text"  value={this.state.Title} />
+                    <input 
+                    onChange={(event)=> this.inputChange(event)}
+                    onKeyPress = { event=> this.keyPressHandeler(event)}
+
+                    className="form-control" type="text"  value={this.state.Title} />
                 </div>
             )
 
