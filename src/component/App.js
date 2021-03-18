@@ -9,7 +9,7 @@ function App() {
         <div className="row">
 
           <div className="col-sm-8 offset-sm-2">
-            <Title />
+           <Title /> 
           </div>
 
 

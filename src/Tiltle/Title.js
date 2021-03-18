@@ -14,36 +14,45 @@ class Title extends React.Component {
         }
     }
 
-    editHandeler(){
+    editHandeler() {
 
         this.setState({
             ...this.state,
-            isInput:true
+            isInput: true
         })
 
     }
 
-    inputChange(event){
-        
-       this.setState({
-           ...this.state,
-           Title: event.target.value,
-      
-       })
+    inputChange(event) {
 
-    
+        this.setState({
+            ...this.state,
+            Title: event.target.value,
+
+        })
+
+
     }
 
 
-    keyPressHandeler(event){
+    keyPressHandeler(event) {
 
-        if(event.key === 'Enter'){
+        if (event.key === 'Enter') {
 
             this.setState({
                 ...this.state,
-                isInput:false
+                isInput: false
             })
         }
+    }
+
+
+    blurHandler(event) {
+
+        this.setState({
+            ...this.state,
+            isInput: false
+        })
     }
 
     render() {
@@ -52,13 +61,14 @@ class Title extends React.Component {
 
         if (this.state.isInput) {
 
-            outPut= (
+            outPut = (
                 <div>
-                    <input 
-                    onChange={(event)=> this.inputChange(event)}
-                    onKeyPress = { event=> this.keyPressHandeler(event)}
+                    <input
+                        onChange={(event) => this.inputChange(event)}
+                        onKeyPress={event => this.keyPressHandeler(event)}
+                        onBlur={event => this.blurHandler(event)}
 
-                    className="form-control" type="text"  value={this.state.Title} />
+                        className="form-control" type="text" value={this.state.Title} />
                 </div>
             )
 
@@ -66,24 +76,24 @@ class Title extends React.Component {
 
             outPut = (
                 <div className="d-flex TitleSection">
-                    <h1 className="display-4"> { this.state.Title } </h1>
-                    <span onClick={ ()=> this.editHandeler() } className="h4 editIcon"> <i className="fas fa-pencil-alt"></i></span>
+                    <div className="display-4"> {this.state.Title} </div>
+                    <span onClick={() => this.editHandeler()} className="h4 editIcon"> <i className="fas fa-pencil-alt"></i></span>
                 </div>
 
-            ) 
+            )
 
-        }   
+        }
 
 
-      
+
 
         return (
 
             <>
-                <div className="container">
-                    <div className="row">
-                        <h1> {outPut} </h1>
-                    </div>
+                <div>
+
+                    {outPut}
+
                 </div>
 
             </>

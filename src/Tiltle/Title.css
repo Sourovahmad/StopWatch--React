@@ -9,3 +9,8 @@
 .TitleSection:hover .editIcon{
     opacity: 1;
 }
+
+.form-control{
+    height: 60px;
+    font-size: 25px;
+}
