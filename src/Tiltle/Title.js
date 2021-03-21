@@ -2,6 +2,7 @@ import React from "react";
 import "./Title.css";
 
 
+
 class Title extends React.Component {
 
     constructor(props) {
@@ -71,6 +72,8 @@ class Title extends React.Component {
                         className="form-control" type="text" value={this.state.Title} />
                 </div>
             )
+
+            
 
         } else {
 

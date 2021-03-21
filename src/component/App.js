@@ -1,6 +1,8 @@
 
 import Title from "../Tiltle/Title";
 import "./App.css";
+import CountDown from "../CountDown/CountDown";
+
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
 
           <div className="col-sm-8 offset-sm-2">
            <Title /> 
+           <CountDown /> 
+           
           </div>
 
 
