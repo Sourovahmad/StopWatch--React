@@ -19,6 +19,8 @@ class Controller extends Component {
       pause: true,
       lap: true
     })
+
+    this.props.start()
   }
 
   pauseHandler() {
@@ -31,11 +33,11 @@ class Controller extends Component {
       reset: true
     })
 
-  }
-
-  lapHandler() {
+    this.props.pauseWatch()
 
   }
+
+
   resettHandler() {
 
     this.setState({
@@ -44,6 +46,8 @@ class Controller extends Component {
       lap: false,
       reset: false
     })
+
+    this.props.reset()
 
   }
 
@@ -76,13 +80,6 @@ class Controller extends Component {
             Pause
            </button>
 
-
-          <button
-
-            className="btn btn-lg btn-warning pl-4 ml-4"
-            onClick={event => this.lapHandler()}>
-            Lap
-           </button>
         </div>
 
       )
