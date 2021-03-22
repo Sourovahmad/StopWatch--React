@@ -10,7 +10,7 @@ class Title extends React.Component {
         super(props)
 
         this.state = {
-            Title: "this is khan Title",
+            Title: "Md Khan Rabbani ",
             isInput: false,
         }
     }
