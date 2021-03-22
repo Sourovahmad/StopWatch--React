@@ -21,20 +21,40 @@ class Controller extends Component {
     })
   }
 
-  pauseHandler(){
+  pauseHandler() {
+
+    this.setState({
+      ...this.state,
+      start: true,
+      pause: false,
+      lap: false,
+      reset: true
+    })
 
   }
 
-  lapHandler(){
-    
+  lapHandler() {
+
   }
+  resettHandler() {
+
+    this.setState({
+      start: true,
+      pause: false,
+      lap: false,
+      reset: false
+    })
+
+  }
+
+
 
 
   GetController() {
 
     let output = null
 
-    if (this.state.start) {
+    if (this.state.start && !this.state.reset) {
 
       output = (
         <div className="m-2">
@@ -44,23 +64,51 @@ class Controller extends Component {
           >Start</button>
         </div>
       )
-    } else if(this.state.pause && this.state.lap){
+    } else if (this.state.pause && this.state.lap) {
 
       output = (
-             
+
         <div>
-           <button 
-           onClick={ event=> this.pauseHandler()}
-           className="btn btn-lg btn-primary py-3">
-               Pause
+          <button
+            className="btn btn-lg btn-primary pl-4 ml-4"
+            onClick={event => this.pauseHandler()}
+          >
+            Pause
            </button>
 
 
-           <button 
-           onClick={ event=> this.lapHandler()}
-           className="btn btn-lg btn-danger py-3">
-               Lap
+          <button
+
+            className="btn btn-lg btn-warning pl-4 ml-4"
+            onClick={event => this.lapHandler()}>
+            Lap
            </button>
+        </div>
+
+      )
+    } else if (this.state.start && this.state.reset) {
+
+
+      output = (
+
+        <div>
+          <button
+            className="btn btn-lg btn-success pl-4 ml-4"
+            onClick={event => this.startHandler()}
+          >
+
+            Start
+           </button>
+
+          <button
+            className="btn btn-lg btn-danger pl-4 ml-4"
+            onClick={event => this.resettHandler()}
+          >
+
+            Reset
+           </button>
+
+
         </div>
 
       )
@@ -73,7 +121,7 @@ class Controller extends Component {
   render() {
 
     return this.GetController()
-    
+
   }
 }
 
